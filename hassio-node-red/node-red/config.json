@@ -1,0 +1,51 @@
+{
+    "name": "Node-RED",
+    "version": "1.10",
+    "slug": "node-red",
+    "description": "Node-RED automation server",
+    "url": "https://github.com/digi-ghost/hassio-node-red/tree/master/node-red",
+    "image": "digi-ghost/hassio-node-red-{arch}",
+    "webui": "[PROTO:ssl]://[HOST]:[PORT:1880]",
+    "startup": "application",
+    "boot": "auto",
+    "map": ["share:rw", "ssl"],
+    "hassio_api": true,
+    "host_network": true,
+    "ports": {
+        "1880/tcp": 1880
+    },
+    "options": {
+        "ssl": false,
+        "certfile": "fullchain.pem",
+        "keyfile": "privkey.pem",
+        "admin_users": [
+            {
+                "username": "admin",
+                "password": "password",
+                "permissions": "*"
+            }
+        ],
+        "http_user": {
+            "username": "",
+            "password": ""
+        },
+        "palette_version": ""
+    },
+    "schema": {
+        "ssl": "bool",
+        "certfile": "str",
+        "keyfile": "str",
+        "admin_users": [
+            {
+                "username": "str",
+                "password": "str",
+                "permissions": "str"
+            }
+        ],
+        "http_user": {
+            "username": "str",
+            "password": "str"
+        },
+        "palette_version": "str"
+    }
+}
